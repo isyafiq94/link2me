@@ -1,1 +1,184 @@
+package com.example.obdscanner
 
+enum class OBDCommand(
+    val pid: String,
+    val description: String,
+    val unit: String
+) {
+
+    RPM(
+        pid = "010C",
+        description = "Engine RPM",
+        unit = "rpm"
+    ),
+
+    MAF(
+        pid = "0110",
+        description = "Mass Air Flow",
+        unit = "g/s"
+    ),
+
+    COOLANT_TEMP(
+        pid = "0105",
+        description = "Coolant Temperature",
+        unit = "°C"
+    ),
+
+    INTAKE_AIR_TEMP(
+        pid = "010F",
+        description = "Intake Air Temperature",
+        unit = "°C"
+    ),
+
+    THROTTLE_POSITION(
+        pid = "0111",
+        description = "Throttle Position",
+        unit = "%"
+    ),
+
+    VEHICLE_SPEED(
+        pid = "010D",
+        description = "Vehicle Speed",
+        unit = "km/h"
+    ),
+
+    ENGINE_LOAD(
+        pid = "0104",
+        description = "Engine Load",
+        unit = "%"
+    ),
+
+    CONTROL_MODULE_VOLTAGE(
+        pid = "0142",
+        description = "Control Module Voltage",
+        unit = "V"
+    ),
+
+    FUEL_PRESSURE(
+        pid = "010A",
+        description = "Fuel Pressure",
+        unit = "kPa"
+    ),
+
+    FUEL_LEVEL(
+        pid = "012F",
+        description = "Fuel Level Input",
+        unit = "%"
+    ),
+
+    BAROMETRIC_PRESSURE(
+        pid = "0133",
+        description = "Barometric Pressure",
+        unit = "kPa"
+    ),
+
+    SHORT_TERM_FUEL_TRIM_BANK1(
+        pid = "0106",
+        description = "Short Term Fuel Trim Bank 1",
+        unit = "%"
+    ),
+
+    LONG_TERM_FUEL_TRIM_BANK1(
+        pid = "0107",
+        description = "Long Term Fuel Trim Bank 1",
+        unit = "%"
+    ),
+
+    OXYGEN_SENSOR_1_BANK1(
+        pid = "0113",
+        description = "Oxygen Sensor 1 Bank 1",
+        unit = "V"
+    ),
+
+    OXYGEN_SENSOR_2_BANK1(
+        pid = "0114",
+        description = "Oxygen Sensor 2 Bank 1",
+        unit = "V"
+    ),
+
+    IGNITION_TIMING_ADVANCE(
+        pid = "010E",
+        description = "Ignition Timing Advance",
+        unit = "°"
+    ),
+
+    ABSOLUTE_LOAD_VALUE(
+        pid = "0143",
+        description = "Absolute Load Value",
+        unit = "%"
+    ),
+
+    FUEL_AIR_COMMANDED_EQUIVALENCE_RATIO(
+        pid = "0144",
+        description = "Fuel-Air Commanded Equivalence Ratio",
+        unit = "ratio"
+    ),
+
+    CATALYST_TEMPERATURE_BANK1_SENSOR1(
+        pid = "013C",
+        description = "Catalyst Temperature Bank 1 Sensor 1",
+        unit = "°C"
+    ),
+
+    AMBIENT_AIR_TEMPERATURE(
+        pid = "0146",
+        description = "Ambient Air Temperature",
+        unit = "°C"
+    ),
+
+    EGR_ERROR(
+        pid = "0149",
+        description = "EGR Error",
+        unit = "%"
+    ),
+
+    DISTANCE_TRAVELED_WITH_MIL_ON(
+        pid = "0121",
+        description = "Distance Traveled With MIL On",
+        unit = "km"
+    ),
+
+    EVAPORATIVE_SYSTEM_VAPOR_PRESSURE(
+        pid = "0150",
+        description = "Evaporative System Vapor Pressure",
+        unit = "Pa"
+    ),
+
+    ABSOLUTE_THROTTLE_POSITION_B(
+        pid = "0147",
+        description = "Absolute Throttle Position B",
+        unit = "%"
+    ),
+
+    ABSOLUTE_THROTTLE_POSITION_C(
+        pid = "0148",
+        description = "Absolute Throttle Position C",
+        unit = "%"
+    ),
+
+    ACCELERATOR_PEDAL_POSITION_D(
+        pid = "0150",
+        description = "Accelerator Pedal Position D",
+        unit = "%"
+    ),
+
+    ENGINE_COOLANT_TEMPERATURE_2(
+        pid = "0151",
+        description = "Engine Coolant Temperature 2",
+        unit = "°C"
+    ),
+
+    OIL_TEMPERATURE(
+        pid = "015C",
+        description = "Engine Oil Temperature",
+        unit = "°C"
+    );
+
+    companion object {
+        fun fromPid(pid: String): OBDCommand? {
+            return values().find {
+                it.pid.equals(pid, ignoreCase = true)
+            }
+        }
+    }
+}
