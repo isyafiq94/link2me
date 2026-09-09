@@ -1,11 +1,17 @@
 package com.example.peroduascanner.bluetooth
 
+import android.bluetooth.BluetoothDevice
+
 /**
- * Simple UI helper / picker to select a Bluetooth device.
- * TODO: replace with actual Activity/Fragment or Dialog implementation.
+ * Placeholder UI helper for selecting a Bluetooth device.
+ * In a real app this would be an Activity/Fragment showing paired devices and discovery.
  */
 class BluetoothDevicePicker {
-    fun show() {
-        // TODO: show device list and return selected device
+    /**
+     * Synchronous stub: returns null. Replace with actual implementation.
+     */
+    fun pickDevice(): BluetoothDevice? {
+        // TODO: implement UI flow to allow the user to pick a device
+        return null
     }
 }

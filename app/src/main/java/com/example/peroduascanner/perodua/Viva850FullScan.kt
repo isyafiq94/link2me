@@ -6,8 +6,8 @@ import com.example.peroduascanner.model.ScanResult
  * Full scan procedure for Viva 850 vehicles.
  */
 class Viva850FullScan(private val ecu: PeroduaECU) {
-    fun run(): ScanResult {
-        // TODO: orchestrate ECU queries for a full scan
+    suspend fun run(): ScanResult {
+        // In a real implementation you'd sequence supported commands, retry and normalize results.
         return ecu.fullScan()
     }
 }

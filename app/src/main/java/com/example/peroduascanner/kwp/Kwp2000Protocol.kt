@@ -1,11 +1,23 @@
 package com.example.peroduascanner.kwp
 
 /**
- * Implementation stub for KWP2000 protocol handling.
+ * Lightweight KWP2000 protocol helper. This is a basic framing example and will
+ * need adjustments for real-world ECU interactions (timings, checksums, physical layer).
  */
 class Kwp2000Protocol {
-    fun sendRequest(payload: ByteArray): ByteArray {
-        // TODO: implement KWP2000 framing and send
-        return ByteArray(0)
+    fun buildRequest(serviceId: Int, payload: ByteArray = ByteArray(0)): ByteArray {
+        // Very small example frame: [sid][len][payload...]
+        val frame = ByteArray(2 + payload.size)
+        frame[0] = serviceId.toByte()
+        frame[1] = payload.size.toByte()
+        System.arraycopy(payload, 0, frame, 2, payload.size)
+        return frame
+    }
+
+    fun parseResponse(raw: ByteArray): KwpResponse {
+        // Very simplistic: treat first byte as success flag
+        if (raw.isEmpty()) return KwpResponse(false, raw, "empty")
+        val success = raw[0].toInt() != 0
+        return KwpResponse(success, raw, null)
     }
 }

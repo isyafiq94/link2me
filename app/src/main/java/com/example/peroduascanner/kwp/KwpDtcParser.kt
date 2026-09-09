@@ -5,7 +5,7 @@ package com.example.peroduascanner.kwp
  */
 object KwpDtcParser {
     fun parseDtc(data: ByteArray): List<String> {
-        // TODO: decode DTCs from raw bytes
+        // Placeholder: real KWP DTC formats vary. Return an empty list for now.
         return emptyList()
     }
 }

@@ -5,5 +5,13 @@ package com.example.peroduascanner.obd
  */
 interface OBDCommand {
     val command: String
-    fun encode(): ByteArray = command.toByteArray()
+    fun encode(prefixWithCR: Boolean = true): ByteArray {
+        val cmd = if (prefixWithCR) "$command\r" else command
+        return cmd.toByteArray()
+    }
 }
+
+/**
+ * Simple concrete implementation for arbitrary OBD command strings.
+ */
+class SimpleObdCommand(override val command: String) : OBDCommand
