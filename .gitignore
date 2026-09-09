@@ -1,0 +1,30 @@
+# Gradle
+.gradle
+/build
+*.apk
+*.ap_
+*.aab
+
+# Android Studio
+.idea
+.classpath
+.project
+.settings
+local.properties
+*.iml
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+/captures
+.externalNativeBuild
+
+# Keys & Secrets
+*.keystore
+*.jks
+keystore.properties
+secrets.properties
